@@ -1,0 +1,109 @@
+.cta-button {
+  width: auto;
+  min-width: 340px;
+  height: 70px;
+
+  background: rgba(2, 5, 10, 0.7);
+  border: 1px solid var(--color-accent-cyan);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 2rem;
+  white-space: nowrap;
+
+  position: relative; /* needed for the corner markers to anchor correctly */
+
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  clip-path: polygon(10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px);
+}
+
+.cta-button::before {
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(242, 162, 58, 0.1),
+      transparent);
+}
+
+.cta-button:hover {
+  background: rgba(21, 27, 34, 0.4); /* semi-transparent instead of solid */
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  box-shadow: 0 0 10px rgba(242, 162, 58, 0.2);
+  border-color: var(--color-accent-bright);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta-icon {
+  color: var(--color-accent-cyan);
+  transition: color 0.3s ease;
+}
+
+.cta-button:hover .cta-icon {
+  color: var(--color-accent-bright);
+}
+
+.cta-text {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.cta-arrow {
+  color: var(--color-accent-cyan);
+  font-size: 18px;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateX(6px);
+  color: var(--color-accent-bright);
+}
+
+/* Corner markers */
+
+.cta-corner {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border: 1px solid var(--color-text-primary);
+}
+
+.top-left {
+  top: 4px;
+  left: 4px;
+
+  border-right: none;
+  border-bottom: none;
+}
+
+.bottom-right {
+  bottom: 4px;
+  right: 4px;
+
+  border-left: none;
+  border-top: none;
+}

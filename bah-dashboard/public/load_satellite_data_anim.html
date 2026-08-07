@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    background-color: #0d1117;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+  }
+  .container {
+    position: relative;
+    width: 480px;
+    height: 280px;
+    animation: fadeOut 4s infinite linear;
+  }
+  
+  @keyframes fadeOut {
+    0%, 90% { opacity: 1; }
+    98%, 100% { opacity: 0; }
+  }
+
+  /* Cylinders */
+  .cylinder {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    border: 2px solid #d2691e;
+    border-radius: 30px / 15px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(210, 105, 30, 0.4);
+    background: linear-gradient(to bottom, #111, #0d1117);
+    color: #e2e8f0;
+    z-index: 2;
+  }
+  .cylinder::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    height: 25px;
+    border: 2px solid #d2691e;
+    border-radius: 50%;
+  }
+  .cyl-bt13 {
+    left: 20px;
+    top: 40px;
+    animation: cyl1Anim 4s infinite ease-in-out;
+  }
+  .cyl-bt8 {
+    left: 20px;
+    top: 150px;
+    animation: cyl2Anim 4s infinite ease-in-out;
+  }
+  
+  /* Trails */
+  .trail {
+    position: absolute;
+    height: 2px;
+    background: #d2691e;
+    opacity: 0;
+    box-shadow: 0 0 5px #d2691e;
+    animation: trailAnim 4s infinite ease-in-out;
+    transform-origin: left;
+    z-index: 1;
+  }
+  .trail1 { left: 80px; top: 80px; width: 130px; transform: rotate(10deg); }
+  .trail2 { left: 80px; top: 190px; width: 130px; transform: rotate(-10deg); }
+  
+  @keyframes trailAnim {
+    0%, 28% { opacity: 0; transform: scaleX(0); }
+    33%, 43% { opacity: 0.8; transform: scaleX(1); }
+    48%, 100% { opacity: 0; transform: scaleX(1); }
+  }
+
+  @keyframes cyl1Anim {
+    0% { opacity: 0; transform: translateX(0); }
+    5%, 25% { opacity: 1; transform: translateX(0); }
+    40%, 48% { opacity: 1; transform: translate(160px, 20px) scale(0.6); opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes cyl2Anim {
+    0% { opacity: 0; transform: translateX(0); }
+    5%, 25% { opacity: 1; transform: translateX(0); }
+    40%, 48% { opacity: 1; transform: translate(160px, -20px) scale(0.6); opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Funnel Loader */
+  .funnel {
+    position: absolute;
+    left: 210px;
+    top: 110px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #d2691e;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(210,105,30,0.5);
+    animation: funnelAnim 4s infinite ease-in-out;
+    background: #0d1117;
+    z-index: 3;
+  }
+  .funnel svg {
+    width: 24px;
+    height: 24px;
+    stroke: #d2691e;
+    fill: none;
+    stroke-width: 2;
+  }
+  @keyframes funnelAnim {
+    0%, 18% { opacity: 0; transform: scale(0.8); }
+    22%, 75% { opacity: 1; transform: scale(1); }
+    80%, 100% { opacity: 0; transform: scale(0.8); }
+  }
+  
+  /* Loading text */
+  .loading-txt {
+    position: absolute;
+    left: 185px;
+    top: 80px;
+    font-size: 11px;
+    color: #d2691e;
+    opacity: 0;
+    animation: loadTxtAnim 4s infinite linear;
+  }
+  @keyframes loadTxtAnim {
+    0%, 25% { opacity: 0; }
+    30%, 50% { opacity: 1; }
+    55%, 100% { opacity: 0; }
+  }
+
+  /* Grids */
+  .grid-container {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    opacity: 0;
+    z-index: 2;
+  }
+  .grid-container div {
+    border-radius: 2px;
+  }
+  .grid-lbl {
+    position: absolute;
+    font-size: 11px;
+    top: 100px;
+    width: 90px;
+    text-align: center;
+    color: #94a3b8;
+  }
+  
+  .grid1 {
+    left: 200px;
+    top: 90px;
+    animation: grid1Anim 4s infinite ease-in-out;
+  }
+  .grid2 {
+    left: 200px;
+    top: 90px;
+    animation: grid2Anim 4s infinite ease-in-out;
+  }
+  
+  @keyframes grid1Anim {
+    0%, 48% { opacity: 0; transform: translateX(0) scale(0.1); }
+    53%, 73% { opacity: 1; transform: translateX(130px) translateY(-50px) scale(1); }
+    76%, 83% { opacity: 1; transform: translateX(130px) translateY(-50px) scale(1.05); }
+    86%, 95% { opacity: 1; transform: translateX(130px) translateY(-50px) scale(1); }
+    100% { opacity: 0; }
+  }
+  @keyframes grid2Anim {
+    0%, 48% { opacity: 0; transform: translateX(0) scale(0.1); }
+    53%, 73% { opacity: 1; transform: translateX(130px) translateY(50px) scale(1); }
+    76%, 83% { opacity: 1; transform: translateX(130px) translateY(50px) scale(1.05); }
+    86%, 95% { opacity: 1; transform: translateX(130px) translateY(50px) scale(1); }
+    100% { opacity: 0; }
+  }
+
+  .final-lbl {
+    position: absolute;
+    left: 320px;
+    top: 250px;
+    font-size: 12px;
+    color: #d2691e;
+    opacity: 0;
+    font-weight: bold;
+    animation: finalLblAnim 4s infinite ease-in-out;
+    white-space: nowrap;
+  }
+  @keyframes finalLblAnim {
+    0%, 68% { opacity: 0; transform: translateY(10px); }
+    73%, 95% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; }
+  }
+
+  /* Heatmap cells simulation */
+  .c1 { background: #1e3a8a !important; }
+  .c2 { background: #3b82f6 !important; }
+  .c3 { background: #fbbf24 !important; }
+  .c4 { background: #ea580c !important; }
+  .c5 { background: #991b1b !important; }
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="cylinder cyl-bt13"><br>BT13.nc</div>
+    <div class="cylinder cyl-bt8"><br>BT8.nc</div>
+    
+    <div class="trail trail1"></div>
+    <div class="trail trail2"></div>
+
+    <div class="loading-txt">Loading NetCDF</div>
+    <div class="funnel">
+      <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+    </div>
+    
+    <div class="grid-container grid1">
+      <div class="c1"></div><div class="c2"></div><div class="c3"></div><div class="c4"></div>
+      <div class="c2"></div><div class="c3"></div><div class="c5"></div><div class="c4"></div>
+      <div class="c3"></div><div class="c5"></div><div class="c4"></div><div class="c3"></div>
+      <div class="c4"></div><div class="c4"></div><div class="c3"></div><div class="c2"></div>
+      <div class="grid-lbl">BT13 channel</div>
+    </div>
+
+    <div class="grid-container grid2">
+      <div class="c4"></div><div class="c3"></div><div class="c2"></div><div class="c1"></div>
+      <div class="c3"></div><div class="c2"></div><div class="c1"></div><div class="c2"></div>
+      <div class="c3"></div><div class="c1"></div><div class="c2"></div><div class="c3"></div>
+      <div class="c2"></div><div class="c3"></div><div class="c4"></div><div class="c5"></div>
+      <div class="grid-lbl">BT8 channel</div>
+    </div>
+    
+    <div class="final-lbl">2 channels loaded</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+venv/
+.env
+__pycache__/
+*.pyc
+
+uploads/
+
+.idea/
+.vscode/
+
+alembic.ini
