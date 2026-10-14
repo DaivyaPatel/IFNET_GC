@@ -1,7 +1,5 @@
 # IFNET_GC: Satellite Frame Interpolation 
 
-> **High-Precision Spatio-Temporal Frame Interpolation and Atmospheric Feature Evolution Framework for Geostationary Meteorological Satellites (INSAT-3D/3DR/3DS & GOES-16/19).**
-
 ---
 
 ## 📌 Project Summary
