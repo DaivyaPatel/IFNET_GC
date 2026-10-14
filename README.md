@@ -2,7 +2,7 @@
 
 ---
 
-## 📌 Project Summary
+## Project Summary
 
 Geostationary meteorological satellites such as **ISRO's INSAT-3D/3DR/3DS** and **NOAA's GOES-16/19** observe Earth at discrete scan intervals (typically 15 to 30 minutes, or longer during scan anomalies). However, critical high-impact atmospheric phenomena—such as **cyclone eye formation, rapid cloud condensation/evaporation, sudden flood surges, and fog dissipation**—evolve dynamically on sub-15-minute scales.
 
@@ -17,7 +17,7 @@ The system includes a production-ready **FastAPI backend**, an enterprise **Reac
 
 ---
 
-## 🌟 Key Capabilities & Scientific Innovations
+## Key Capabilities & Scientific Innovations
 
 ### 1. Multi-Spectral Evolution Refinement
 Unlike generic RGB interpolators, IFNET_GC directly injects normalized physical radiometric measurements into its refinement stem:
@@ -55,7 +55,7 @@ Computes four calibrated multi-spectral composites to isolate standing water and
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 flowchart TD
@@ -99,7 +99,7 @@ flowchart TD
 
 ---
 
-## 🔬 Mathematical Formulations
+## Mathematical Formulations
 
 ### 1. Brightness Temperature Inversion & Normalization
 For clean infrared window ($T_{\text{IR}}$) and water vapor ($T_{\text{WV}}$), raw Kelvin values are normalized using inverted bounds so cold cloud tops appear bright:
@@ -127,7 +127,7 @@ where:
 
 ---
 
-## 📁 Repository Directory Structure
+## Repository Directory Structure
 
 ```plaintext
 IFNET_GC/
@@ -206,7 +206,7 @@ IFNET_GC/
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 * **Operating System**: Linux (Ubuntu 20.04+) or macOS (Apple Silicon / Intel)
@@ -291,7 +291,7 @@ IFNET_GC/
 
 ---
 
-## 📡 API Reference Overview
+##  API Reference Overview
 
 | HTTP Method | Endpoint | Description | Payload / Parameters |
 |:---|:---|:---|:---|
@@ -309,7 +309,7 @@ IFNET_GC/
 
 ---
 
-## 🛠️ Standalone CLI Utilities
+## Standalone CLI Utilities
 
 ### 1. Universal Geospatial Patch Cropper
 Crop any mix of INSAT `.h5` or GOES `.nc` files to identical lat/lon square patches:
@@ -350,7 +350,7 @@ python hsv2.py --pred flow_pred.npy --gt flow_gt.npy --out ./visualizations/
 
 ---
 
-## 📊 Benchmark & Evaluation Results
+## Benchmark & Evaluation Results
 
 Evaluated across severe meteorological test cases (including **Hurricane Milton** and **Severe Cyclonic Storms** over the Bay of Bengal and Arabian Sea):
 
