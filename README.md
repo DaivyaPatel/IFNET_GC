@@ -1,19 +1,10 @@
-# IFNET_GC: Satellite Frame Interpolation & Atmospheric Evolution System
-
-[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg)](https://pytorch.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React-19-61DAFB.svg)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF.svg)](https://vitejs.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-v4-38B2AC.svg)](https://tailwindcss.com/)
-[![Three.js](https://img.shields.io/badge/Three.js-R185-black.svg)](https://threejs.org/)
-[![ISRO BAH](https://img.shields.io/badge/ISRO-BAH%202026-FF9933.svg)](https://www.isro.gov.in/)
+# IFNET_GC: Satellite Frame Interpolation 
 
 > **High-Precision Spatio-Temporal Frame Interpolation and Atmospheric Feature Evolution Framework for Geostationary Meteorological Satellites (INSAT-3D/3DR/3DS & GOES-16/19).**
 
 ---
 
-## 📌 Executive Summary
+## 📌 Project Summary
 
 Geostationary meteorological satellites such as **ISRO's INSAT-3D/3DR/3DS** and **NOAA's GOES-16/19** observe Earth at discrete scan intervals (typically 15 to 30 minutes, or longer during scan anomalies). However, critical high-impact atmospheric phenomena—such as **cyclone eye formation, rapid cloud condensation/evaporation, sudden flood surges, and fog dissipation**—evolve dynamically on sub-15-minute scales.
 
@@ -378,15 +369,3 @@ Evaluated across severe meteorological test cases (including **Hurricane Milton*
 * **Speed**: Inference executes in **$<45\,\text{ms}$ per $256 \times 256$ patch** on an NVIDIA RTX 3090/4090 GPU.
 
 ---
-
-## 👥 Contributors & Acknowledgements
-
-Developed for the **Bharatiya Antariksh Hackathon (ISRO BAH 2026)**.
-* Special thanks to **ISRO (Indian Space Research Organisation)** and **MOSDAC** for INSAT-3D/3DR/3DS telemetry and calibration datasets.
-* Thanks to the **NOAA GOES-R Series Program** for open meteorological NetCDF data.
-* Built upon foundational concepts from **RIFE (Real-Time Intermediate Flow Estimation)** and **PySteps**.
-
----
-
-## 📄 License
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
