@@ -13,7 +13,7 @@ Standard computer-vision frame interpolation models (like stock RIFE or optical-
 2. **EvolutionRefinementNet**: A 12-channel deep residual network that receives the base prediction, flow fields, confidence mask, and **raw physical thermal infrared (TIR) and water vapor (WV)** brightness temperature bands. It computes a localized residual correction matrix scaled by a learned per-channel gain parameter.
 3. **Gap Map Spatial Conditioning (`gap_map`)**: Broadcasts arbitrary scalar time fractions into a dense spatial tensor, enabling variable time-gap interpolation and **hierarchical recursive halving** (generating smooth sequences at 15 min $\rightarrow$ 7.5 min $\rightarrow$ 3.75 min intervals).
 
-The system includes a production-ready **FastAPI backend**, an enterprise **React 19 + Three.js interactive dashboard**, geospatial projection tools, and dedicated analytical pipelines for **tropical cyclones, floods, and fog**.
+The system includes a **FastAPI backend**, a **React 19 + Three.js interactive dashboard**, geospatial projection tools, and analytical pipelines for **tropical cyclones, floods, and fog**.
 
 ---
 
